@@ -1,3 +1,5 @@
+## [0.2.1] - Add examples and README
+
 ## [0.1.1] - Modify example and add description
 
 ## [0.1.0] - First release
