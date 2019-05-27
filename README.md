@@ -160,3 +160,44 @@ class MyHomePage extends StatelessWidget {
   }
 }
 ```
+
+### Using Custom object as a state
+
+
+```dart
+// Custom state class
+class MyState {
+  int _counter;
+  MyState(int counter) : _counter = counter;
+  int get counter => _counter;
+  int get doubleCounter => _counter * 2;
+  set counter(int newCount) => this._counter = newCount;
+}
+
+// ... same as basic example code, modify FloatingActionButton -> onPressed
+        onPressed: () {
+          // call the `setState` of the widget identified by `counter`.
+          EasyStatefulBuilder.setState('counter', (state) {
+            MyState next = state.currentState as MyState;
+            next.counter = next.counter + 1;
+            state.nextState = next;
+          });
+        },
+        
+// ... same as multiple widget example code, modify Column -> children
+          EasyStatefulBuilder(
+            identifier: 'counter',
+            initialValue: MyState(0),
+            builder: (context, myState) {
+              return Center(child: Text("Counter is ${myState.counter}"));
+            },
+          ),
+          EasyStatefulBuilder(
+            identifier: 'counter',
+            builder: (context, myState) {
+              return Center(
+                  child: Text("Double Counter is ${myState.doubleCounter}"));
+            },
+          ),
+    
+```
