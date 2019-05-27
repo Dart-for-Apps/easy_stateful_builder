@@ -13,13 +13,13 @@ Issue나 PR은 언제든지 환영합니다.
 
 ## 설치하기 
 
-`pubspec.yaml` 파일의 `dependencies` 파트에 `easy_stateful_builder: ^0.2.1` 를 추가하고 `flutter pub get`을 수행합니다.
+`pubspec.yaml` 파일의 `dependencies` 파트에 `easy_stateful_builder: ^0.2.2` 를 추가하고 `flutter pub get`을 수행합니다.
 
 ```yaml
 # pubspec.yaml
 
 dependencies:
-  easy_stateful_builder: ^0.2.1
+  easy_stateful_builder: ^0.2.2
 ```
 
 ## Example

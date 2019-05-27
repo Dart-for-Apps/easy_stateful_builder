@@ -1,6 +1,6 @@
 name: easy_stateful_builder
 description: An easy widget that helps building StatefulWidget implicitly. Highly inspired by `StatefulBuilder` and `GlobalKey`. Still under the development.
-version: 0.2.1
+version: 0.2.2
 author: Gihwan Oh <wurikiji@gmail.com>
 repository: https://github.com/Dart-for-Apps/easy_stateful_builder.git
 issue_tracker: https://github.com/Dart-for-Apps/easy_stateful_builder/issues

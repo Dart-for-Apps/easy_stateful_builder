@@ -1,3 +1,9 @@
+## [0.2.2] - Add korean description
+
+- Add more example
+- Add korean description
+- Fix typo
+
 ## [0.2.1] - Add examples and README
 
 ## [0.1.1] - Modify example and add description
