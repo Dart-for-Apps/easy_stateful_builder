@@ -2,7 +2,9 @@ name: easy_stateful_builder
 description: A widget that helps building StatefulWidget implicitly. 
 version: 0.1.0
 author: Gihwan Oh
-homepage:
+repository: https://github.com/Dart-for-Apps/easy_stateful_builder.git
+issue_tracker: https://github.com/Dart-for-Apps/easy_stateful_builder/issues
+documentation: https://github.com/Dart-for-Apps/easy_stateful_builder/blob/master/README.md
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
