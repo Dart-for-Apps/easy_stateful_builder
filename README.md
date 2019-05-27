@@ -10,13 +10,13 @@ Using this package may incur high memory usage.
 
 ## Install
 
-Add `easy_stateful_builder: ^0.1.1` dependency to your `pubspec.yaml` and then run `flutter pub get` to get this package.
+Add `easy_stateful_builder: ^0.2.1` dependency to your `pubspec.yaml` and then run `flutter pub get` to get this package.
 
 ```yaml
 # pubspec.yaml
 
 dependencies:
-  easy_stateful_builder: ^0.1.1
+  easy_stateful_builder: ^0.2.1
 ```
 
 ## Example
