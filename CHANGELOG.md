@@ -1,3 +1,5 @@
+## [0.1.1] - Modify example and add description
+
 ## [0.1.0] - First release
 
 - First release
