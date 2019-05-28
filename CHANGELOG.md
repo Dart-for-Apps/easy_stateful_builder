@@ -1,3 +1,7 @@
+## [0.3.0] - Add keepAlive parameter
+
+- Set state not to be disposed when `keepAlive` is true
+
 ## [0.2.2] - Add korean description
 
 - Add more example

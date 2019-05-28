@@ -10,19 +10,12 @@ Using this package may incur high memory usage.
 
 ## Install
 
-Add `easy_stateful_builder: ^0.2.2` dependency to your `pubspec.yaml` and then run `flutter pub get` to get this package.
-
-```yaml
-# pubspec.yaml
-
-dependencies:
-  easy_stateful_builder: ^0.2.2
-```
+[Installation Guide](https://pub.dev/packages/easy_stateful_builder#-installing-tab-)
 
 ## Example
 
-This package provides just one important widget called `EasyStatefulBuilder`. `EasyStatefulBuilder` takes ***four***
-named parameter. 
+This package provides just one important widget called `EasyStatefulBuilder`.
+`EasyStatefulBuilder` takes several named parameter. 
 
 - **builder** (requried, `Function`): A build function to create widget that you want to render.
 Its type is `Function(BuildContext, dynamic)`. The first argument is the usual `BuildContext context`.
@@ -30,6 +23,7 @@ The second argument is the snapshot of the widget's state. I will describe it la
 - **identifier** (required, `String`): The ID of the `state` to maintain. This ID will be used as global key, so you have to
 distinguish this carefully. 
 - initialValue (optional, `dynamic`): The initial value of the `state`. If not given, then initial state will be set to `null`.
+- keepAlive (options, `bool` default `true`): Whether to keep `identifier` state alive even though all the widget that refers `identifier` state are disposed.
 - key (optional, `Key`): The usual `Key` object. 
 
 And `EasyStatefulBuilder` provides only one simple but powerful method `EasyStatefulBuilder.setState`.

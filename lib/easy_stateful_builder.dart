@@ -17,6 +17,7 @@ class EasyStatefulBuilder<T> extends StatefulWidget {
     this.initialValue,
     @required this.builder,
     @required this.identifier,
+    this.keepAlive = true,
   }) : super(key: key);
 
   /// Set of setState holder.
@@ -38,31 +39,48 @@ class EasyStatefulBuilder<T> extends StatefulWidget {
 
   /// The widget builder. You can call setState in this builder if you want to.
   final EasyStatefulWidgetBuilder builder;
+
+  /// The ID of the state. You have responsibility to distinguish this with other state.
   final String identifier;
+
+  /// Initial state
   final initialValue;
+
+  /// Whether to keep this state alive even though all the widget that refers this state are disposed.
+  final bool keepAlive;
 
   Widget build(BuildContext context) {
     return builder(context, _stateRegistry[this.identifier].currentState);
   }
 
+  /// Register the new listener
   void _register(StateSetter setter) {
     if (_setterRegistry[this.identifier] != null) {
       _setterRegistry[this.identifier].add(setter);
+      if (this.keepAlive) {
+        _stateRegistry[this.identifier].keepAlive = true;
+      }
     } else {
       _setterRegistry.addEntries([
         MapEntry(this.identifier, [setter])
       ]);
-      _stateRegistry.addEntries([
-        MapEntry(this.identifier, _EasyStateHolder(this.initialValue)),
-      ]);
+      if (_stateRegistry[this.identifier] == null) {
+        _stateRegistry.addEntries([
+          MapEntry(this.identifier,
+              _EasyStateHolder(this.initialValue, keepAlive: this.keepAlive)),
+        ]);
+      }
     }
   }
 
+  /// Unregister the listener of the disposed widget
   void _unregister(StateSetter setState) {
     _setterRegistry[this.identifier].remove(setState);
     if (_setterRegistry[this.identifier].isEmpty) {
       _setterRegistry.remove(this.identifier);
-      _stateRegistry.remove(this.identifier);
+      if (!_stateRegistry[this.identifier].keepAlive) {
+        _stateRegistry.remove(this.identifier);
+      }
     }
   }
 
@@ -89,10 +107,17 @@ class _EasyStatefulBuilderState extends State<EasyStatefulBuilder> {
   }
 }
 
+/// Wrapper for the state
 class _EasyStateHolder<T> {
-  _EasyStateHolder(T initialState) : _state = initialState;
+  _EasyStateHolder(this._state, {this.keepAlive = true});
 
+  /// Whether to keep this state alive even though all the widget that refers this state are disposed.
+  bool keepAlive;
+
+  /// The current state;
   T _state;
   T get currentState => _state;
+
+  /// Set new state
   set nextState(state) => _state = state;
 }

@@ -13,18 +13,11 @@ Issue나 PR은 언제든지 환영합니다.
 
 ## 설치하기 
 
-`pubspec.yaml` 파일의 `dependencies` 파트에 `easy_stateful_builder: ^0.2.2` 를 추가하고 `flutter pub get`을 수행합니다.
-
-```yaml
-# pubspec.yaml
-
-dependencies:
-  easy_stateful_builder: ^0.2.2
-```
+[설치가이드](https://pub.dev/packages/easy_stateful_builder#-installing-tab-)
 
 ## Example
 
-이 패키지에서 제공하는 것은 `EasyStatefulBuilder` 위젯 단 하나입니다. `EasyStatefulBuilder`는 총 4개의 파라미터를 생성 인자로 받습니다.
+이 패키지에서 제공하는 것은 `EasyStatefulBuilder` 위젯 단 하나입니다. `EasyStatefulBuilder`는 아래와 같은 파라미터를 생성 인자로 받습니다.
 
 - **identifier** (required, `String`): 관리할 `state`를 구분 짓는 구분자 (ID) 입니다. 앱의 전역에 걸쳐서 `state`를 구분하는데 사용되므로, 
 다른 `state`를 저장하고 싶은 경우에는 다른 `identifier`를 부여해야 합니다. 예제를 보면 쉽게 이해가능합니다.
@@ -32,6 +25,7 @@ dependencies:
 `builder` 함수에는 `BuildContext, dynamic`의 총 2개 인자가 주어집니다. 첫 번째 인자는 일반적인 `BuildContext context` 객체로, flutter의
 다른 위젯이나 builder에서도 사용되는 것과 동일합니다. 두 번째 인자는 관리하고자 하는 `state`의 현재 상태 입니다. 예제를 보면 쉽게 이해가능합니다.
 - initialValue (optional, `dynamic`): `identifier` ID로 관리할 `state`의 초기 값 입니다. 주어지지 않을 경우 `null`이 됩니다.
+- keepAlive (options, `bool` default `true`): state를 사용하는 모든 위젯이 dispose 된 후에도 `identifier`로 관리되는 state`를 유지할 것인지 결정합니다.
 - key (optional, `Key`): 일반 적인 위젯에 들어가는 `Key` 입니다. 
 
 상태의 변경을 위해 `EasyStatefulBuilder` 위젯은 `EasyStatefulBuilder.setState`라는 단 하나의 상태관리 메소드를 제공합니다.
