@@ -1,5 +1,7 @@
 # easy_stateful_builder
 
+![pub badge](https://img.shields.io/pub/v/easy_stateful_builder.svg)
+
 이 패키지는 아직 flutter의 상태 관리에 익숙하지 않은 초보자들을 위해 작성되었습니다. `StatefulWidget`의 명시적인 사용 없이
 `State<StatefulWidget>`의 `setState`와 동일한 효과를 제공하는 위젯 패키지 입니다. 이를 통해서 `BLoC` 패턴, `Redux`, 
 `Provider`, `InheritedWidget`, 이나 `scoped_model` 등과 같은 상태관리 패키지 없이, 쉽게 글로벌 상태를 관리할 수 있습니다.
