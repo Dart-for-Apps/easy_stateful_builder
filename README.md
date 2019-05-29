@@ -1,5 +1,7 @@
 # easy_stateful_builder
 
+![pub badge](https://img.shields.io/pub/v/easy_stateful_builder.svg)
+
 A helper widget to manage the state of the app. Using this package, you can manage the global states easily.
 This package is always under the development and **not fully tested**, thus **I highly recommend you to use this package
 only for your toy project.** Issues and PR are always welcome.
