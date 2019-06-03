@@ -3,10 +3,8 @@ library easy_stateful_builder;
 import 'package:flutter/material.dart';
 
 /// The signature of builder function. This builder will be given
-/// the current BuildContext, setState(), and the current value (or object) state.
-/// You can explicitly call the setState() inside this builder but
-/// I encourage you to separate the view and logic according to BLoC (or other patterns).
-typedef EasyStatefulWidgetBuilder = Widget Function(BuildContext, dynamic);
+/// the current BuildContext and the current value (or object) state.
+typedef EasyStatefulWidgetBuilder<T> = Widget Function(BuildContext, T);
 
 typedef EasyStatefulValueSetter = Function(_EasyStateHolder);
 
@@ -37,8 +35,19 @@ class EasyStatefulBuilder<T> extends StatefulWidget {
     }
   }
 
+  /// Get the `identifier`'s state. Null if not exists.
+  /// Returned state can be `null`.
+  static ImmutableState getState(String identifier) =>
+      ImmutableState(_stateRegistry[identifier]?.currentState);
+
+  /// Explicitly remove the state
+  static void dispose(String identifier) {
+    _setterRegistry.remove(identifier);
+    _stateRegistry.remove(identifier);
+  }
+
   /// The widget builder. You can call setState in this builder if you want to.
-  final EasyStatefulWidgetBuilder builder;
+  final EasyStatefulWidgetBuilder<T> builder;
 
   /// The ID of the state. You have responsibility to distinguish this with other state.
   final String identifier;
@@ -120,4 +129,14 @@ class _EasyStateHolder<T> {
 
   /// Set new state
   set nextState(state) => _state = state;
+}
+
+/// To provide the checkability of the state registry
+/// Users can not modify the current state with this.
+@immutable
+class ImmutableState<T> {
+  ImmutableState(this._state);
+  final T _state;
+
+  T get currentState => _state;
 }

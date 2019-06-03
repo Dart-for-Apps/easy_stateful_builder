@@ -2,6 +2,11 @@
 
 ![pub badge](https://img.shields.io/pub/v/easy_stateful_builder.svg)
 
+[Korean](https://github.com/Dart-for-Apps/easy_stateful_builder/blob/master/README-kr.md)
+
+**This package is under development. Please, see the [changelog](https://pub.dev/packages/easy_stateful_builder#-changelog-tab-) to get the latest API.** The example may not contain the
+latest API. 
+
 A helper widget to manage the state of the app. Using this package, you can manage the global states easily.
 This package is always under the development and **not fully tested**, thus **I highly recommend you to use this package
 only for your toy project.** Issues and PR are always welcome.

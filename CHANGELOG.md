@@ -1,3 +1,11 @@
+## [0.4.0] - Add immutable state getter, explicit state unregister
+
+- `EasyStatefulBuilder.getState('identifier')` returns the current state
+    - You can access the current state using `returnedValue.currentState`
+    - You can not change the current state
+- `EasyStatefulBuilder.dispose('identifier')` explicitly unregister the state
+    - Currently, the disposing order of this method and the actual widget should be considered. 
+
 ## [0.3.0] - Add keepAlive parameter
 
 - Set state not to be disposed when `keepAlive` is true
