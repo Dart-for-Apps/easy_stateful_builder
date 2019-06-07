@@ -1,6 +1,6 @@
 # easy_stateful_builder
 
-![pub badge](https://img.shields.io/pub/v/easy_stateful_builder.svg)
+[![pub badge](https://img.shields.io/pub/v/easy_stateful_builder.svg)](https://pub.dev/packages/easy_stateful_builder)
 
 **This package is under development. Please, see the [changelog](https://pub.dev/packages/easy_stateful_builder#-changelog-tab-) to get the latest API.** The example may not contain the
 latest API. 
