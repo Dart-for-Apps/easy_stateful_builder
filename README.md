@@ -1,6 +1,6 @@
 # easy_stateful_builder
 
-![pub badge](https://img.shields.io/pub/v/easy_stateful_builder.svg)
+[![pub badge](https://img.shields.io/pub/v/easy_stateful_builder.svg)](https://pub.dev/packages/easy_stateful_builder)
 
 [Korean](https://github.com/Dart-for-Apps/easy_stateful_builder/blob/master/README-kr.md)
 
